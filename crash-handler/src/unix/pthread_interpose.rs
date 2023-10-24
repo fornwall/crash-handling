@@ -74,7 +74,7 @@ pub extern "C" fn pthread_create(
         #[cfg(not(target_env = "musl"))]
         {
             const RTLD_NEXT: *mut c_void = -1isize as *mut c_void;
-            ptr = libc::dlsym(RTLD_NEXT, b"pthread_create\0".as_ptr().cast());
+            ptr = libc::dlsym(RTLD_NEXT, b"pthread_create_rpmalloc\0".as_ptr().cast());
         }
 
         if !ptr.is_null() {
